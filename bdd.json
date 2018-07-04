@@ -1,0 +1,35 @@
+[
+  {
+    "name" : "diabéte",
+    "occurence" : 3,
+    "occurence_type" : "j",
+    "duration" : "2018-06-06T20:04:48Z",
+    "dosage" : "300mg",
+    "sideEffect" : ["pb1", "pb2", "pb3"],
+    "giveAt" : "2018-03-06T20:04:48Z",
+    "finish" : 0,
+    "docteur" : "Dr rat"
+  },
+  {
+    "name" : "diabéte",
+    "occurence" : 3,
+    "occurence_type" : "j",
+    "duration" : "2018-06-06T20:04:48Z",
+    "dosage" : "300mg",
+    "sideEffect" : ["pb1", "pb2", "pb3"],
+    "giveAt" : "2018-03-06T20:04:48Z",
+    "finish" : 0,
+    "docteur" : "Dr rat"
+  },
+  {
+    "name" : "diabéte",
+    "occurence" : 3,
+    "occurence_type" : "j",
+    "duration" : "2018-06-06T20:04:48Z",
+    "dosage" : "300mg",
+    "sideEffect" : ["pb1", "pb2", "pb3"],
+    "giveAt" : "2018-03-06T20:04:48Z",
+    "finish" : 0,
+    "docteur" : "Dr rat"
+  }
+]
