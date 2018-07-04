@@ -4,14 +4,14 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.azerty.feelae.fragments.FirstFragment
-import com.example.azerty.feelae.fragments.SecondFragment
+import com.example.azerty.feelae.fragments.PrescriptionListFragment
 
 class MenuPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment? {
         return when (position) {
             0 -> FirstFragment()
-            1 -> SecondFragment()
+            1 -> PrescriptionListFragment()
             else -> null
         }
     }
