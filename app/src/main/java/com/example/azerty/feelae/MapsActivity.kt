@@ -14,10 +14,18 @@ import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.ActivityCompat
 import android.util.Log
+import com.example.azerty.feelae.`interface`.PharmacyService
+import com.example.azerty.feelae.model.Pharmacy
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
+import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
+import com.google.android.gms.location.places.AutocompleteFilter
+import com.google.android.gms.location.places.Places
+import com.google.android.gms.location.places.ui.PlaceAutocomplete
+import com.google.android.gms.location.places.ui.PlaceAutocomplete.MODE_OVERLAY
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment
 import com.google.android.gms.location.places.ui.PlacePicker
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -25,6 +33,12 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.IOException
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -51,15 +65,39 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 super.onLocationResult(p0)
 
                 lastLocation = p0!!.lastLocation
-                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
+//                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
             }
         }
         createLocationRequest()
 
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener {
-            loadPlacePicker()
-        }
+        val url = "https://maps.googleapis.com"
+        val retrofit = Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build()
+        val service = retrofit.create(PharmacyService::class.java)
+        val pharmacyRequest = service.listPharmacy("AIzaSyDGdgiadL9am9aEylXskvVAnSMPhe1YnAY",
+                "-33.8670522,151.1957362",
+                "500",
+                "pharmacy")
+
+        pharmacyRequest.enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if (response.isSuccessful) {
+                    response.body()
+                }
+
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+
+            }
+        })
+
+//        val fab = findViewById<FloatingActionButton>(R.id.fab)
+//        fab.setOnClickListener {
+//            loadPlacePicker()
+//        }
     }
 
     override fun onMarkerClick(p0: Marker?) = false
@@ -140,9 +178,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val markerOptions = MarkerOptions().position(location)
         val titleStr = getAdress(location)
 
-        markerOptions.icon(BitmapDescriptorFactory.fromBitmap(
-                BitmapFactory.decodeResource(resources, R.mipmap.ic_user_location)
-        ))
+//        markerOptions.icon(BitmapDescriptorFactory.fromBitmap(
+//                BitmapFactory.decodeResource(resources, R.mipmap.ic_user_location)
+//        ))
         markerOptions.title(titleStr)
         map.addMarker(markerOptions)
     }
