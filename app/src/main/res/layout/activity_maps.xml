@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="112dp"
         android:src="@android:drawable/ic_menu_search"/>
 
@@ -77,5 +77,20 @@
         android:textColor="#fff"
         app:layout_anchor="@+id/map"
         app:layout_anchorGravity="bottom|center" />
+
+    <Switch
+        android:id="@+id/switch_maps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="90dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="@string/map_switch_label"
+        app:layout_anchor="@+id/cardView"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_constraintTop_toTopOf="@id/cardView" />
 
 </android.support.design.widget.CoordinatorLayout>

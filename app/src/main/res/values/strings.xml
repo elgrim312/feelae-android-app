@@ -12,6 +12,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_button_drug">J\'ai mes médicaments</string>
     <string name="title_screen_maps">Trouver une pharmacie</string>
+    <string name="map_switch_label">Afficher que les pharmacies ouvertes</string>
 
     <!-- apps -->
     <string name="title_home">Consultation</string>
