@@ -1,6 +1,6 @@
 [
   {
-    "practitioner_name": "Docteur Véronique BARTEL",
+    "practitioner_name": "Docteur Bartel Véronique",
     "malady_name" : "Grippe",
     "start_at" : "12/03/2018",
     "end_at" : "18/03/2018",
@@ -8,13 +8,13 @@
     "prescription_name": "Doliprane 1000mg",
     "duration_traitement": "4 fois par jour pendant 5 jours",
     "symptome": [
-      "Douleurs à l’estomac, fièvres, maux de tête.",
+      "Douleurs à l’estomac, fièvre, maux de tête.",
       "Brûlures dans le thorax.",
       "Difficulté à supporter la lumière."
     ],
     "traitement": [
       "Doliprane 1000mg  4 fois par jour pendant 5 jours.",
-      "Relenza 5mg 2 fois par jour pendant 5"
+      "Relenza 5mg 2 fois par jour pendant 5 jours."
     ],
     "details" : [
       {
@@ -39,21 +39,21 @@
     ]
   },
   {
-    "practitioner_name": "Docteur Véronique BARTEL",
+    "practitioner_name": "Docteur Lesguillie Catherine",
     "malady_name" : "Grippe",
-    "start_at" : "12/03/2018",
-    "end_at" : "18/03/2018",
-    "finish" : 0,
-    "prescription_name": "Doliprane 1000mg",
-    "duration_traitement": "4 fois par jour pendant 5 jours",
+    "start_at" : "29/06/2018",
+    "end_at" : "04/07/2018",
+    "finish" : 1,
+    "prescription_name": "Trinitrine 18,7 mg",
+    "duration_traitement": "3 fois par jour pendant 9 jours",
     "symptome": [
-      "Douleurs à l’estomac, fièvres, maux de tête.",
-      "Brûlures dans le thorax.",
-      "Difficulté à supporter la lumière."
+      "Mal de gorge.",
+      "Difficultés à déglutir.",
+      "Amygdales gonflées."
     ],
     "traitement": [
-      "Doliprane 1000mg  4 fois par jour pendant 5 jours.",
-      "Relenza 5mg 2 fois par jour pendant 5"
+      "Trinitrine 18,7 mg 3 fois par jour pendant 9 jours.",
+      "Doliprane 1000mg 4 fois par jour pendant 5 jours"
     ],
     "details" : [
       {
@@ -62,37 +62,37 @@
         "occurence" : 4
       },
       {
-        "day" : 5,
-        "medicament" : "Relenza 5mg",
-        "occurence" : 2
+        "day" : 9,
+        "medicament" : "Trinitrine 18,7 mg",
+        "occurence" : 3
       }
     ],
     "side_effect" :
     [
-      " Réactions d'hypersensibilité à type de choc anaphylactique, oedème de Quincke",
-      "agranulocytose, anémie hémolytique chez les patients présentant un déficit en glucose‑6‑phosphate‑déshydrogénase"
+      "Rougeur et démangeaisons au point d'application",
+      "Baisse de la tension artérielle ou hypotension orthostatique"
     ],
     "indication" :
     [
-      "hypersensibilité connue au paracétamol ou à l’un des constituants"
+      "Ne pas être associés aux médicaments utilisés dans les troubles de l'érection"
     ]
   },
   {
-    "practitioner_name": "Docteur Véronique BARTEL",
-    "malady_name" : "Grippe",
+    "practitioner_name": "Docteur Grateau Christine",
+    "malady_name" : "rhinopharyngite",
     "start_at" : "12/03/2018",
     "end_at" : "18/03/2018",
-    "finish" : 0,
-    "prescription_name": "Doliprane 1000mg",
-    "duration_traitement": "4 fois par jour pendant 5 jours",
+    "finish" : 1,
+    "prescription_name": "xylométazoline goutte nasal",
+    "duration_traitement": "2 fois par jour pendant 3 jours",
     "symptome": [
-      "Douleurs à l’estomac, fièvres, maux de tête.",
-      "Brûlures dans le thorax.",
-      "Difficulté à supporter la lumière."
+      "Obstruction nasale accompagnée d’une dyspnée",
+      "Sensation de malaise général.",
+      "Fièvre modérée."
     ],
     "traitement": [
       "Doliprane 1000mg  4 fois par jour pendant 5 jours.",
-      "Relenza 5mg 2 fois par jour pendant 5"
+      "xylométazoline une dose  2 fois par jour pendant 3 jours"
     ],
     "details" : [
       {
@@ -101,19 +101,20 @@
         "occurence" : 4
       },
       {
-        "day" : 5,
+        "day" : 3,
         "medicament" : "Relenza 5mg",
         "occurence" : 2
       }
     ],
     "side_effect" :
     [
-      " Réactions d'hypersensibilité à type de choc anaphylactique, oedème de Quincke",
-      "agranulocytose, anémie hémolytique chez les patients présentant un déficit en glucose‑6‑phosphate‑déshydrogénase"
+      "Ce médicament ne devrait pas s'utiliser durant la grossesse",
+      "Baisse de la tension artérielle"
     ],
     "indication" :
     [
-      "hypersensibilité connue au paracétamol ou à l’un des constituants"
+      "Antidépresseurs tricycliques",
+      "Gouttes ophtalmiques et les vaporisateurs nasaux décongestionnants"
     ]
   }
 ]
