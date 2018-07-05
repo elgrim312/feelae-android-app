@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.util.Log
+import com.example.azerty.feelae.R.id.tabs_main
 import com.example.azerty.feelae.fragments.FirstFragment
 import com.example.azerty.feelae.fragments.HomeFragment
 import com.example.azerty.feelae.fragments.PrescriptionListFragment
@@ -35,13 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         tabs_main.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         openFragment(homeFragment)
-/*        val fragmentAdapter = MenuPagerAdapter(supportFragmentManager)
-        viewpager_main.adapter = fragmentAdapter
-
-        tabs_main.setupWithViewPager(viewpager_main)
-        tabs_main.getTabAt(0)!!.setIcon(R.drawable.ic_person_24px)
-        tabs_main.getTabAt(1)!!.setIcon(R.drawable.ic_phone_24px)
-        tabs_main.getTabAt(2)!!.setIcon(R.drawable.ic_content_copy_24px)*/
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -56,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.prescription -> {
-                Log.d("debug", "prescription")
                 openFragment(prescriptionListFragment)
                 return@OnNavigationItemSelectedListener true
             }

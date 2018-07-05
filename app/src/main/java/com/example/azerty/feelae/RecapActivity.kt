@@ -19,6 +19,9 @@ import android.util.Log
 import com.example.azerty.feelae.notification.NOTIFICATION
 import com.example.azerty.feelae.notification.NOTIFICATION_ID
 import com.example.azerty.feelae.notification.NotificationPublisher
+import com.example.azerty.feelae.utils.concat
+import java.sql.Time
+import java.util.*
 
 class RecapActivity : AppCompatActivity() {
     var traitementData: List<Traitement>? = null
@@ -34,10 +37,7 @@ class RecapActivity : AppCompatActivity() {
         setContentView(R.layout.recap_activity)
 
         recap_glp.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.viewpager_main, prescriptionfragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            finish()
         }
 
         home_arrow.setOnClickListener {
@@ -46,7 +46,7 @@ class RecapActivity : AppCompatActivity() {
 
         recap_remind_me.setOnClickListener {
             createNotificationChannel()
-            scheduleNotification(getNotification("5 second delay"), 5000)
+            makeNotification()
         }
     }
 
@@ -67,14 +67,40 @@ class RecapActivity : AppCompatActivity() {
         }
     }
 
-    private fun concat(datas : ArrayList<String>) : StringBuilder {
-        val stringBuilder = StringBuilder()
+    private fun makeNotification () {
+        val x = 0
+        val dateOnM = 86400
+        traitement?.map {
+            it.details.map {
+                scheduleNotification(getNotification(it.medicament), 5000)
+                while (x  > it.day) {
+                    val day = x*dateOnM
+                    when (it.occurence) {
+                        1 -> {
+                            scheduleNotification(getNotification(it.medicament), (480+day)*1000)
+                        }
 
-        datas.forEach{
-            stringBuilder.append("- ${it}\n")
+                        2 -> {
+                            scheduleNotification(getNotification(it.medicament), (480+day)*1000)
+                            scheduleNotification(getNotification(it.medicament), (720+day)*1000)
+                        }
+
+                        3 -> {
+                            scheduleNotification(getNotification(it.medicament), (480+day)*1000)
+                            scheduleNotification(getNotification(it.medicament), (720+day)*1000)
+                            scheduleNotification(getNotification(it.medicament), (960+day)*1000)
+                        }
+
+                        4 -> {
+                            scheduleNotification(getNotification(it.medicament), (480+day)*1000)
+                            scheduleNotification(getNotification(it.medicament), (720+day)*1000)
+                            scheduleNotification(getNotification(it.medicament), (960+day)*1000)
+                            scheduleNotification(getNotification(it.medicament), (1200+day)*1000)
+                        }
+                    }
+                }
+            }
         }
-
-        return stringBuilder
     }
 
     private fun scheduleNotification(notification: Notification?, delay: Int) {
@@ -90,14 +116,14 @@ class RecapActivity : AppCompatActivity() {
         Log.d("noti", "in  scheduleNotification")
     }
 
-    private fun getNotification(content: String): Notification? {
+    private fun getNotification(medicament: String): Notification? {
         val intent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
         val mBuilder = Notification.Builder(this, "com.example.azerty.feelae")
-                .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("Rappel Prise de ")
-                .setContentText(content)
+                .setSmallIcon(R.drawable.ic_warning_black_24dp)
+                .setContentTitle("Rappel Prise de $medicament")
+                .setContentText(getString(R.string.notification_traitement))
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
         return mBuilder.build()

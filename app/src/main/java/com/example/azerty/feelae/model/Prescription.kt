@@ -14,6 +14,9 @@ data class Prescription (
         val finish: Int,
         val prescription_name: String,
         val duration_traitement: String,
+        val symptome : ArrayList<String>,
+        val traitement : ArrayList<String>,
+        val details: ArrayList<Detail>,
         val side_effect: ArrayList<String>,
         val indication: ArrayList<String>
 ): Parcelable

@@ -20,9 +20,12 @@
     <string name="it_ok">C\'est bon</string>
     <string name="recap_symptome">Symptôme</string>
     <string name="traitement">Traitement</string>
-    <string name="end_call">Fin de l\'appel</string>
+    <string name="end_call">Appeler un médecin</string>
     <string name="menu_profil">Profil</string>
     <string name="menu_follow">Suivi</string>
     <string name="channel_name">feelae</string>
     <string name="channel_description">rappel de prise de traitement</string>
+    <string name="call_practitioner">Appeler un médecin, \n  quand et où vous le souhaitez</string>
+    <string name="notification_traitement">"N'oublié pas de prendre votre médicament"</string>
+    <string name="side_effect">Effet secondaire</string>
 </resources>

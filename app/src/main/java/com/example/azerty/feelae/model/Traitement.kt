@@ -6,5 +6,6 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Traitement (
    val symptome : ArrayList<String>,
-   val traitement : ArrayList<String>
+   val traitement : ArrayList<String>,
+   val details: ArrayList<Detail>
 ): Parcelable
