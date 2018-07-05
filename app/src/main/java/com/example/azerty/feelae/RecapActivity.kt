@@ -40,13 +40,19 @@ class RecapActivity : AppCompatActivity() {
             transaction.commit()
         }
 
-        home_arrow.setOnClickListener {
+        button_home.setOnClickListener {
             finish()
         }
 
         recap_remind_me.setOnClickListener {
             createNotificationChannel()
             scheduleNotification(getNotification("5 second delay"), 5000)
+        }
+
+        recap_drug.setOnClickListener {
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

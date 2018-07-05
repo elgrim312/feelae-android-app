@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.beust.klaxon.Klaxon
+import com.example.azerty.feelae.MapsActivity
 import com.example.azerty.feelae.R
 import com.example.azerty.feelae.TraitementDetailActivity
 import com.example.azerty.feelae.adapter.PrescriptionAdapter
@@ -42,6 +43,12 @@ class PrescriptionListFragment: Fragment() {
             startActivity(intent)
             true
         })
+
+        prescription_list_button.setOnClickListener {
+            val intent = Intent(activity, MapsActivity::class.java)
+            startActivity(intent)
+            activity!!.finish()
+        }
     }
 
     private fun getPrescriptions() {

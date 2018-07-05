@@ -11,6 +11,7 @@ import android.location.Geocoder
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.ActivityCompat
 import android.util.Log
 import com.example.azerty.feelae.`interface`.PharmacyService
@@ -26,6 +27,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_maps.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,10 +65,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
         createLocationRequest()
 
-//        val fab = findViewById<FloatingActionButton>(R.id.fab)
-//        fab.setOnClickListener {
-//            loadPlacePicker()
-//        }
+        button_drug_maps.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        button_home.setOnClickListener {
+            finish()
+        }
+
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            loadPlacePicker()
+        }
     }
 
     override fun onMarkerClick(p0: Marker?) = false
@@ -146,9 +158,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
-    private fun placeMarkerOnMap(location: LatLng, type: String? = null) {
+    private fun placeMarkerOnMap(location: LatLng, type: String? = null, title: String? = null) {
         val markerOptions = MarkerOptions().position(location)
-        val titleStr = getAdress(location)
+        val titleStr = if (title === null) getAdress(location) else title
 
         val icon = if (type === "pharmacy") R.mipmap.ic_pharmacy else R.mipmap.ic_user_location
 
@@ -244,9 +256,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 val results = response!!.body()!!.results
 
                 results.forEach {
-                    placeMarkerOnMap(LatLng(it.geometry.location.lat, it.geometry.location.lng), "pharmacy")
+                    placeMarkerOnMap(LatLng(it.geometry.location.lat, it.geometry.location.lng), "pharmacy", it.name)
 //                    mettre le nom de l'adresse
-//                    markerOptions.title(titleStr)
                 }
             }
 

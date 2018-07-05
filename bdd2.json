@@ -8,6 +8,18 @@
     "traitement": [
       "Doliprane 1000mg  4 fois par jour pendant 5 jours.",
       "Relenza 5mg 2 fois par jour pendant 5"
+    ],
+    "details" : [
+      {
+        "day" : 5,
+        "medicament" : "Doliprane 1000mg",
+        "occurence" : 4
+      },
+      {
+        "day" : 5,
+        "medicament" : "Relenza 5mg",
+        "occurence" : 2
+      }
     ]
   }
 ]
