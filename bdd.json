@@ -1,0 +1,56 @@
+[
+  {
+    "practitioner_name": "Docteur Véronique BARTEL",
+    "malady_name" : "Grippe",
+    "start_at" : "12/03/2018",
+    "end_at" : "18/03/2018",
+    "finish" : 0,
+    "prescription_name": "Doliprane 1000mg",
+    "duration_traitement": "4 fois par jour pendant 5 jours",
+    "side_effect" :
+    [
+      " Réactions d'hypersensibilité à type de choc anaphylactique, oedème de Quincke",
+      "agranulocytose, anémie hémolytique chez les patients présentant un déficit en glucose‑6‑phosphate‑déshydrogénase"
+    ],
+    "indication" :
+    [
+      "hypersensibilité connue au paracétamol ou à l’un des constituants"
+    ]
+  },
+  {
+    "practitioner_name": "Docteur Véronique BARTEL",
+    "malady_name" : "Grippe",
+    "start_at" : "12/03/2018",
+    "end_at" : "18/03/2018",
+    "finish" : 0,
+    "prescription_name": "Doliprane 1000mg",
+    "duration_traitement": "4 fois par jour pendant 5 jours",
+    "side_effect" :
+    [
+      " Réactions d'hypersensibilité à type de choc anaphylactique, oedème de Quincke",
+      "agranulocytose, anémie hémolytique chez les patients présentant un déficit en glucose‑6‑phosphate‑déshydrogénase"
+    ],
+    "indication" :
+    [
+      "hypersensibilité connue au paracétamol ou à l’un des constituants"
+    ]
+  },
+  {
+    "practitioner_name": "Docteur Véronique BARTEL",
+    "malady_name" : "Grippe",
+    "start_at" : "12/03/2018",
+    "end_at" : "18/03/2018",
+    "finish" : 0,
+    "prescription_name": "Doliprane 1000mg",
+    "duration_traitement": "4 fois par jour pendant 5 jours",
+    "side_effect" :
+    [
+      " Réactions d'hypersensibilité à type de choc anaphylactique, oedème de Quincke",
+      "agranulocytose, anémie hémolytique chez les patients présentant un déficit en glucose‑6‑phosphate‑déshydrogénase"
+    ],
+    "indication" :
+    [
+      "hypersensibilité connue au paracétamol ou à l’un des constituants"
+    ]
+  }
+]

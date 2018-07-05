@@ -90,13 +90,13 @@ class RecapActivity : AppCompatActivity() {
         Log.d("noti", "in  scheduleNotification")
     }
 
-    private fun getNotification(content: String, traitementName : String): Notification? {
+    private fun getNotification(content: String): Notification? {
         val intent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
         val mBuilder = Notification.Builder(this, "com.example.azerty.feelae")
                 .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("Rappel Prise de $traitementName")
+                .setContentTitle("Rappel Prise de ")
                 .setContentText(content)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
