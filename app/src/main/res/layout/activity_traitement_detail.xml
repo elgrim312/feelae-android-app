@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TraitementDetailActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/traitement_detail_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/traitement_detail_button_rollback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_return"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/traitement_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gilroy_extra_bold"
+                android:text="@string/resum"
+                android:textAlignment="center"
+                android:textColor="@color/title_shadow"
+                android:textSize="@dimen/title"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/traitement_detail_button_rollback"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/resum" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traitement_detail_docteur_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/traitement_detail_card_indication_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/traitement_detail_card_resum">
+
+                <TextView
+                    android:id="@+id/traitement_detail_card_indication_title_traitement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gilroy_extra_bold"
+                    android:text="@string/traitement"
+                    android:textColor="@color/title_shadow"
+                    android:textSize="@dimen/title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/traitement_detail_traitement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/gilroy_light"
+                    android:lineSpacingExtra="@dimen/detail_list_spacer"
+                    android:textColor="@color/title_shadow"
+                    tools:text="TextView" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/traitement_detail_card_indication"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/traitement_detail_card_side_effect">
+
+                <TextView
+                    android:id="@+id/traitement_detail_card_indication_title_secondaire"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gilroy_extra_bold"
+                    android:text="@string/resum"
+                    android:textColor="@color/title_shadow"
+                    android:textSize="@dimen/title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/traitement_detail_symptome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/gilroy_light"
+                    android:lineSpacingExtra="@dimen/detail_list_spacer"
+                    android:textColor="@color/title_shadow"
+                    tools:text="TextView" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/traitement_detail_card_resum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/traitement_detail_docteur_container">
+
+                <TextView
+                    android:id="@+id/traitement_detail__resum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gilroy_extra_bold"
+                    android:text="@string/side_effect"
+                    android:textColor="@color/title_shadow"
+                    android:textSize="@dimen/title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/traitement_detail_indication"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/gilroy_light"
+                    android:lineSpacingExtra="@dimen/detail_list_spacer"
+                    android:textColor="@color/title_shadow"
+                    tools:text="TextView" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/traitement_detail_card_side_effect"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/traitement_detail_card_indication_title_traitement">
+
+                <TextView
+                    android:id="@+id/traitement_detail_card_indication_title_effect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gilroy_extra_bold"
+                    android:text="@string/indication"
+                    android:textColor="@color/title_shadow"
+                    android:textSize="@dimen/title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/traitement_detail_side_effect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/gilroy_light"
+                    android:lineSpacingExtra="@dimen/detail_list_spacer"
+                    android:textColor="@color/title_shadow"
+                    tools:text="TextView" />
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/traitement_detail_docteur_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <ImageView
+            android:id="@+id/traitement_detail_img_doc"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/traitement_detail_docteur_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/gilroy_extra_bold"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorBackground"
+            android:textSize="@dimen/title"
+            android:textStyle="bold"
+            tools:text="Docteur Véronique BARTEL" />
+
+        <TextView
+            android:id="@+id/traitement_detail_start_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="52dp"
+            android:fontFamily="@font/gilroy_light"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="@dimen/title"
+            tools:text="01.07.18" />
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

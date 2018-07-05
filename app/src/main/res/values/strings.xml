@@ -3,5 +3,40 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_home">home</string>
+
+    <!--Maps-->
+    <string name="option_get_place">title</string>
+    <string name="default_info_title">title</string>
+    <string name="default_info_snippet">snippet</string>
+    <string name="pick_place">pick place</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_button_drug">J\'ai mes médicaments</string>
+    <string name="title_screen_maps">Trouver une pharmacie</string>
+    <string name="map_switch_label">Afficher que les pharmacies ouvertes</string>
+
+    <!-- apps -->
+    <string name="title_home">Consultation</string>
+    <string name="follow">Mon suivi</string>
+    <string name="pharmacie_proche">pharmacie proche</string>
+    <string name="consultation">Consultation</string>
+    <string name="resum">Résumé</string>
+    <string name="thank">Merci,</string>
+    <string name="end_consultation">Votre consultation est terminée</string>
+    <string name="remind_me">Me faire un rappel</string>
+    <string name="recap_drug_store">Pharmacies proches</string>
+    <string name="it_ok">J\'ai mes médicaments</string>
+    <string name="recap_symptome">Symptômes</string>
+    <string name="traitement">Traitement</string>
+    <string name="end_call">Appeler un médecin</string>
+    <string name="menu_profil">Profil</string>
+    <string name="menu_follow">Suivi</string>
+    <string name="channel_name">feelae</string>
+    <string name="channel_description">rappel de prise de traitement</string>
+    <string name="call_practitioner">Appelez un médecin, \n  quand et où vous le souhaitez</string>
+    <string name="notification_traitement">"N'oubliez pas de prendre votre médicament"</string>
+    <string name="side_effect">Effets secondaires</string>
+
+    <!-- prescription list item -->
+    <string name="prescription_prise_textview">Prise :</string>
+    <string name="indication">Contre indication</string>
 </resources>
