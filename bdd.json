@@ -7,6 +7,27 @@
     "finish" : 0,
     "prescription_name": "Doliprane 1000mg",
     "duration_traitement": "4 fois par jour pendant 5 jours",
+    "symptome": [
+      "Douleurs à l’estomac, fièvres, maux de tête.",
+      "Brûlures dans le thorax.",
+      "Difficulté à supporter la lumière."
+    ],
+    "traitement": [
+      "Doliprane 1000mg  4 fois par jour pendant 5 jours.",
+      "Relenza 5mg 2 fois par jour pendant 5"
+    ],
+    "details" : [
+      {
+        "day" : 5,
+        "medicament" : "Doliprane 1000mg",
+        "occurence" : 4
+      },
+      {
+        "day" : 5,
+        "medicament" : "Relenza 5mg",
+        "occurence" : 2
+      }
+    ],
     "side_effect" :
     [
       " Réactions d'hypersensibilité à type de choc anaphylactique, oedème de Quincke",
@@ -25,6 +46,27 @@
     "finish" : 0,
     "prescription_name": "Doliprane 1000mg",
     "duration_traitement": "4 fois par jour pendant 5 jours",
+    "symptome": [
+      "Douleurs à l’estomac, fièvres, maux de tête.",
+      "Brûlures dans le thorax.",
+      "Difficulté à supporter la lumière."
+    ],
+    "traitement": [
+      "Doliprane 1000mg  4 fois par jour pendant 5 jours.",
+      "Relenza 5mg 2 fois par jour pendant 5"
+    ],
+    "details" : [
+      {
+        "day" : 5,
+        "medicament" : "Doliprane 1000mg",
+        "occurence" : 4
+      },
+      {
+        "day" : 5,
+        "medicament" : "Relenza 5mg",
+        "occurence" : 2
+      }
+    ],
     "side_effect" :
     [
       " Réactions d'hypersensibilité à type de choc anaphylactique, oedème de Quincke",
@@ -43,6 +85,27 @@
     "finish" : 0,
     "prescription_name": "Doliprane 1000mg",
     "duration_traitement": "4 fois par jour pendant 5 jours",
+    "symptome": [
+      "Douleurs à l’estomac, fièvres, maux de tête.",
+      "Brûlures dans le thorax.",
+      "Difficulté à supporter la lumière."
+    ],
+    "traitement": [
+      "Doliprane 1000mg  4 fois par jour pendant 5 jours.",
+      "Relenza 5mg 2 fois par jour pendant 5"
+    ],
+    "details" : [
+      {
+        "day" : 5,
+        "medicament" : "Doliprane 1000mg",
+        "occurence" : 4
+      },
+      {
+        "day" : 5,
+        "medicament" : "Relenza 5mg",
+        "occurence" : 2
+      }
+    ],
     "side_effect" :
     [
       " Réactions d'hypersensibilité à type de choc anaphylactique, oedème de Quincke",

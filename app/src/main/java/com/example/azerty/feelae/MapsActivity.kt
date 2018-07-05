@@ -11,8 +11,11 @@ import android.location.Geocoder
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.ActivityCompat
 import android.util.Log
+import android.widget.CompoundButton
+import android.widget.Switch
 import com.example.azerty.feelae.`interface`.PharmacyService
 import com.example.azerty.feelae.model.Pharmacy
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
@@ -26,6 +29,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_maps.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,10 +67,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
         createLocationRequest()
 
-//        val fab = findViewById<FloatingActionButton>(R.id.fab)
-//        fab.setOnClickListener {
-//            loadPlacePicker()
-//        }
+        button_drug_maps.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        button_home.setOnClickListener {
+            finish()
+        }
+
+        switch_maps.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+            setUpMap()
+        })
+
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            loadPlacePicker()
+        }
     }
 
     override fun onMarkerClick(p0: Marker?) = false
@@ -126,6 +144,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
     private fun setUpMap() {
+        map.clear()
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
             return
@@ -135,7 +155,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         map.mapType = GoogleMap.MAP_TYPE_TERRAIN
 
         fusedLocationProviderClient.lastLocation.addOnSuccessListener(this) { location ->
-            if (location!=null) {
+            if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 placeMarkerOnMap(currentLatLng)
@@ -146,9 +166,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
-    private fun placeMarkerOnMap(location: LatLng, type: String? = null) {
+    private fun placeMarkerOnMap(location: LatLng, type: String? = null, title: String? = null, snippet: String? = null) {
         val markerOptions = MarkerOptions().position(location)
-        val titleStr = getAdress(location)
+        val titleStr = if (title === null) getAdress(location) else title
 
         val icon = if (type === "pharmacy") R.mipmap.ic_pharmacy else R.mipmap.ic_user_location
 
@@ -156,6 +176,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 BitmapFactory.decodeResource(resources, icon)
         ))
         markerOptions.title(titleStr)
+
+        if (snippet != null) {
+            markerOptions.snippet(snippet)
+        }
+
         map.addMarker(markerOptions)
     }
 
@@ -209,7 +234,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             if (e is ResolvableApiException) {
                 try {
                     e.startResolutionForResult(this@MapsActivity, REQUEST_CHECK_SETTINGS)
-                } catch (sendEx: IntentSender.SendIntentException) {}
+                } catch (sendEx: IntentSender.SendIntentException) {
+                }
             }
         }
     }
@@ -239,14 +265,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 "500",
                 "pharmacy")
 
+        val switch = findViewById<Switch>(R.id.switch_maps)
+
         pharmacyRequest.enqueue(object : Callback<Pharmacy> {
             override fun onResponse(call: Call<Pharmacy>?, response: Response<Pharmacy>?) {
                 val results = response!!.body()!!.results
 
                 results.forEach {
-                    placeMarkerOnMap(LatLng(it.geometry.location.lat, it.geometry.location.lng), "pharmacy")
-//                    mettre le nom de l'adresse
-//                    markerOptions.title(titleStr)
+                    var snippet = ""
+                    if (it.opening_hours != null) {
+                        snippet = if (it.opening_hours.open_now) "Ouvert" else "Fermé"
+                    } else {
+                        snippet = "Inconnu"
+                    }
+
+                    if (switch.isChecked && it.opening_hours != null) {
+                        if (it.opening_hours.open_now) {
+                            placeMarkerOnMap(LatLng(it.geometry.location.lat, it.geometry.location.lng), "pharmacy", it.name, snippet)
+                        }
+                    } else if (!switch.isChecked) {
+                        placeMarkerOnMap(LatLng(it.geometry.location.lat, it.geometry.location.lng), "pharmacy", it.name, snippet)
+                    }
                 }
             }
 
@@ -255,6 +294,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
         })
     }
+
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
         private const val REQUEST_CHECK_SETTINGS = 2

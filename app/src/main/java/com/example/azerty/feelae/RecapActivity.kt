@@ -40,13 +40,19 @@ class RecapActivity : AppCompatActivity() {
             finish()
         }
 
-        home_arrow.setOnClickListener {
+        button_home.setOnClickListener {
             finish()
         }
 
         recap_remind_me.setOnClickListener {
             createNotificationChannel()
             makeNotification()
+        }
+
+        recap_drug.setOnClickListener {
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
