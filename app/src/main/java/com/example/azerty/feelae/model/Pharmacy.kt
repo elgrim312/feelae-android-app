@@ -1,7 +1,7 @@
 package com.example.azerty.feelae.model
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-
-@Parcelize
-class Pharmacy(var name: String) : Parcelable {}
+data class Pharmacy(
+        val html_attributions: List<Any>,
+        val results: List<Result>,
+        val status: String
+)

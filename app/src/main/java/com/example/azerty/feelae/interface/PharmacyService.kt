@@ -10,5 +10,5 @@ interface PharmacyService {
     fun listPharmacy(@Query("key") apiKey: String,
                      @Query("location") location: String,
                      @Query("radius") radius: String,
-                     @Query("type") type: String): Call<String>
+                     @Query("type") type: String): Call<Pharmacy>
 }

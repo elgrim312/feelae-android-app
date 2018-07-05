@@ -11,21 +11,14 @@ import android.location.Geocoder
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.ActivityCompat
 import android.util.Log
 import com.example.azerty.feelae.`interface`.PharmacyService
 import com.example.azerty.feelae.model.Pharmacy
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
-import com.google.android.gms.location.places.AutocompleteFilter
-import com.google.android.gms.location.places.Places
-import com.google.android.gms.location.places.ui.PlaceAutocomplete
-import com.google.android.gms.location.places.ui.PlaceAutocomplete.MODE_OVERLAY
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment
 import com.google.android.gms.location.places.ui.PlacePicker
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -37,14 +30,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private lateinit var map: GoogleMap
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var lastLocation: Location
+    private lateinit var locationString: String
 
     private lateinit var locationCallback: LocationCallback
     private lateinit var locationRequest: LocationRequest
@@ -65,34 +58,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 super.onLocationResult(p0)
 
                 lastLocation = p0!!.lastLocation
-//                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
+                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
             }
         }
         createLocationRequest()
-
-        val url = "https://maps.googleapis.com"
-        val retrofit = Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .build()
-        val service = retrofit.create(PharmacyService::class.java)
-        val pharmacyRequest = service.listPharmacy("AIzaSyDGdgiadL9am9aEylXskvVAnSMPhe1YnAY",
-                "-33.8670522,151.1957362",
-                "500",
-                "pharmacy")
-
-        pharmacyRequest.enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                if (response.isSuccessful) {
-                    response.body()
-                }
-
-            }
-
-            override fun onFailure(call: Call<String>, t: Throwable) {
-
-            }
-        })
 
 //        val fab = findViewById<FloatingActionButton>(R.id.fab)
 //        fab.setOnClickListener {
@@ -117,7 +86,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+
             }
 
         }
@@ -169,18 +139,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 placeMarkerOnMap(currentLatLng)
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 6f))
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+
+                getAllPharmacy(lastLocation)
             }
         }
     }
 
-    private fun placeMarkerOnMap(location: LatLng) {
+    private fun placeMarkerOnMap(location: LatLng, type: String? = null) {
         val markerOptions = MarkerOptions().position(location)
         val titleStr = getAdress(location)
 
-//        markerOptions.icon(BitmapDescriptorFactory.fromBitmap(
-//                BitmapFactory.decodeResource(resources, R.mipmap.ic_user_location)
-//        ))
+        val icon = if (type === "pharmacy") R.mipmap.ic_pharmacy else R.mipmap.ic_user_location
+
+        markerOptions.icon(BitmapDescriptorFactory.fromBitmap(
+                BitmapFactory.decodeResource(resources, icon)
+        ))
         markerOptions.title(titleStr)
         map.addMarker(markerOptions)
     }
@@ -252,6 +226,35 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
+    private fun getAllPharmacy(location: Location) {
+        val lastLocationString = location.latitude.toString() + ',' + location.longitude.toString()
+        val url = "https://maps.googleapis.com"
+        val retrofit = Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        val service = retrofit.create(PharmacyService::class.java)
+        val pharmacyRequest = service.listPharmacy("AIzaSyDGdgiadL9am9aEylXskvVAnSMPhe1YnAY",
+                lastLocationString,
+                "500",
+                "pharmacy")
+
+        pharmacyRequest.enqueue(object : Callback<Pharmacy> {
+            override fun onResponse(call: Call<Pharmacy>?, response: Response<Pharmacy>?) {
+                val results = response!!.body()!!.results
+
+                results.forEach {
+                    placeMarkerOnMap(LatLng(it.geometry.location.lat, it.geometry.location.lng), "pharmacy")
+//                    mettre le nom de l'adresse
+//                    markerOptions.title(titleStr)
+                }
+            }
+
+            override fun onFailure(call: Call<Pharmacy>, t: Throwable) {
+
+            }
+        })
+    }
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
         private const val REQUEST_CHECK_SETTINGS = 2
