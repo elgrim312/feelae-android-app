@@ -35,4 +35,7 @@
     <string name="call_practitioner">Appeler un médecin, \n  quand et où vous le souhaitez</string>
     <string name="notification_traitement">"N'oublié pas de prendre votre médicament"</string>
     <string name="side_effect">Effet secondaire</string>
+
+    <!-- prescription list item -->
+    <string name="prescription_prise_textview">Prise :</string>
 </resources>

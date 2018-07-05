@@ -18,6 +18,9 @@ import android.widget.CompoundButton
 import android.widget.Switch
 import com.example.azerty.feelae.`interface`.PharmacyService
 import com.example.azerty.feelae.model.Pharmacy
+import com.example.azerty.feelae.utils.Constant.Companion.API_KEY
+import com.example.azerty.feelae.utils.Constant.Companion.API_MAP_TYPE
+import com.example.azerty.feelae.utils.Constant.Companion.API_MAP_URL
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
 import com.google.android.gms.common.api.ResolvableApiException
@@ -104,7 +107,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 16f))
 
             }
 
@@ -159,7 +162,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 placeMarkerOnMap(currentLatLng)
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 16f))
 
                 getAllPharmacy(lastLocation)
             }
@@ -254,16 +257,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     private fun getAllPharmacy(location: Location) {
         val lastLocationString = location.latitude.toString() + ',' + location.longitude.toString()
-        val url = "https://maps.googleapis.com"
+        val url = API_MAP_URL
         val retrofit = Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val service = retrofit.create(PharmacyService::class.java)
-        val pharmacyRequest = service.listPharmacy("AIzaSyDGdgiadL9am9aEylXskvVAnSMPhe1YnAY",
+        val pharmacyRequest = service.listPharmacy(API_KEY,
                 lastLocationString,
                 "500",
-                "pharmacy")
+                API_MAP_TYPE)
 
         val switch = findViewById<Switch>(R.id.switch_maps)
 

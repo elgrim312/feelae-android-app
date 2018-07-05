@@ -4,9 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
-import android.util.Log
-import com.example.azerty.feelae.R.id.tabs_main
-import com.example.azerty.feelae.fragments.FirstFragment
+import com.example.azerty.feelae.fragments.ProfilFragment
 import com.example.azerty.feelae.fragments.HomeFragment
 import com.example.azerty.feelae.fragments.PrescriptionListFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,8 +13,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val firstFragment: FirstFragment by lazy {
-        FirstFragment.newInstance()
+    private val profilFragment: ProfilFragment by lazy {
+        ProfilFragment.newInstance()
     }
 
     private val homeFragment: HomeFragment by lazy {
@@ -45,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.profile -> {
-                openFragment(firstFragment)
+                openFragment(profilFragment)
                 return@OnNavigationItemSelectedListener true
             }
 

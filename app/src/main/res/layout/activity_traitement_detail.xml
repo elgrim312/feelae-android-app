@@ -52,8 +52,8 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/gilroy_light"
                     android:lineSpacingExtra="@dimen/detail_list_spacer"
-                    android:text="TextView"
-                    android:textColor="@color/title_shadow" />
+                    android:textColor="@color/title_shadow"
+                    tools:text="TextView" />
 
             </android.support.v7.widget.CardView>
 
@@ -91,8 +91,8 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/gilroy_light"
                     android:lineSpacingExtra="@dimen/detail_list_spacer"
-                    android:text="TextView"
-                    android:textColor="@color/title_shadow" />
+                    android:textColor="@color/title_shadow"
+                    tools:text="TextView" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -128,8 +128,8 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/gilroy_light"
                     android:lineSpacingExtra="@dimen/detail_list_spacer"
-                    android:text="TextView"
-                    android:textColor="@color/title_shadow" />
+                    android:textColor="@color/title_shadow"
+                    tools:text="TextView" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -146,7 +146,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/traitement_detail_card_indication_title_traitement">
 
                 <TextView
-                    android:id="@+id/traitement_detail_card_indication_title_traitement"
+                    android:id="@+id/traitement_detail_card_indication_title_effect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -166,8 +166,8 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/gilroy_light"
                     android:lineSpacingExtra="@dimen/detail_list_spacer"
-                    android:text="TextView"
-                    android:textColor="@color/title_shadow" />
+                    android:textColor="@color/title_shadow"
+                    tools:text="TextView" />
             </android.support.v7.widget.CardView>
         </LinearLayout>
     </ScrollView>
@@ -247,11 +247,11 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/gilroy_extra_bold"
-            android:text="Docteur Véronique BARTEL"
             android:textAlignment="viewStart"
             android:textColor="@color/colorBackground"
             android:textSize="@dimen/title"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Docteur Véronique BARTEL" />
 
         <TextView
             android:id="@+id/traitement_detail_start_at"
@@ -260,7 +260,6 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="52dp"
             android:fontFamily="@font/gilroy_light"
-            android:text="TextView"
             android:textColor="@color/cardview_light_background"
             android:textSize="@dimen/title"
             tools:text="01.07.18" />
