@@ -90,13 +90,13 @@ class RecapActivity : AppCompatActivity() {
         Log.d("noti", "in  scheduleNotification")
     }
 
-    private fun getNotification(content: String): Notification? {
+    private fun getNotification(content: String, traitementName : String): Notification? {
         val intent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
         val mBuilder = Notification.Builder(this, "com.example.azerty.feelae")
                 .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("My notification")
+                .setContentTitle("Rappel Prise de $traitementName")
                 .setContentText(content)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
@@ -104,16 +104,12 @@ class RecapActivity : AppCompatActivity() {
     }
 
     private fun createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = getString(R.string.channel_name)
             val description = getString(R.string.channel_description)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel("com.example.azerty.feelae", name, importance)
             channel.description = description
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
             val notificationManager = getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(channel)
         }

@@ -16,7 +16,7 @@ class NotificationPublisher : BroadcastReceiver() {
 
         val notification = intent!!.getParcelableExtra(NOTIFICATION) as Notification
         val  id = intent.getIntExtra(NOTIFICATION_ID, 0)
-        Log.d("noti", "in notification publisher")
+
         notificationManager.notify(id, notification)
     }
 
