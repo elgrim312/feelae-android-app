@@ -34,7 +34,7 @@
     <string name="channel_description">rappel de prise de traitement</string>
     <string name="call_practitioner">Appelez un médecin, \n  quand et où vous le souhaitez</string>
     <string name="notification_traitement">"N'oubliez pas de prendre votre médicament"</string>
-    <string name="side_effect">Effet secondaire</string>
+    <string name="side_effect">Effets secondaires</string>
 
     <!-- prescription list item -->
     <string name="prescription_prise_textview">Prise :</string>
