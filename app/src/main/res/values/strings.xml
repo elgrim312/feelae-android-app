@@ -38,4 +38,5 @@
 
     <!-- prescription list item -->
     <string name="prescription_prise_textview">Prise :</string>
+    <string name="indication">Contre indication</string>
 </resources>
