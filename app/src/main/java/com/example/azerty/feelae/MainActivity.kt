@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         tabs_main.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        tabs_main.setSelectedItemId(R.id.call);
         openFragment(homeFragment)
     }
 

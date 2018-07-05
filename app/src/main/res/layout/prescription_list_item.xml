@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/prescription_list_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="18dp"
@@ -29,11 +30,11 @@
 
         <TextView
             android:id="@+id/prescription_status"
-            android:layout_width="wrap_content"
+            android:layout_width="76dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/green_badge"
+            android:background="#78d1b2"
             android:fontFamily="@font/gilroy_light"
             android:paddingBottom="4dp"
             android:paddingLeft="8dp"
@@ -60,54 +61,16 @@
             android:id="@+id/prescription_stroke"
             android:layout_width="0dp"
             android:layout_height="3dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="250dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:background="#78d1b2"
             android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/prescription_give_at" />
-
-        <TextView
-            android:id="@+id/prescription_medicament_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/gilroy_extra_bold"
-            android:textColor="@color/body_text"
-            android:textSize="@dimen/body_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/prescription_stroke"
-            tools:text="TextView" />
-
-        <TextView
-            android:id="@+id/prescription_prise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/gilroy_extra_bold"
-            android:text="@string/prescription_prise_textview"
-            android:textColor="@color/body_text"
-            android:textSize="@dimen/body_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/prescription_medicament_name"
-            tools:text="Prise :" />
-
-        <TextView
-            android:id="@+id/prescription_occurence"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/gilroy_light"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/prescription_prise"
-            tools:text="TextView" />
 
     </android.support.constraint.ConstraintLayout>
 

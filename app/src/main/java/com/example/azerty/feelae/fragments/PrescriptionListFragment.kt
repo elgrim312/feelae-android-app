@@ -59,10 +59,9 @@ class PrescriptionListFragment: Fragment() {
                 prescriptionsData = Klaxon().parseArray(response.toString())
                 prescriptions = prescriptionsData as ArrayList<Prescription>
                 Log.d("DEBUG", prescriptionsData.toString())
-
-                itemAdapter.add(prescriptions?.map { PrescriptionAdapter(it) })
+                itemAdapter.notifyItemRangeRemoved(0, prescriptions!!.size)
+                itemAdapter.add(prescriptions?.map { PrescriptionAdapter(it, this.context!!) })
                 prescription_list.adapter = itemAdapter
-                itemAdapter.notifyAdapterDataSetChanged()
             }
         }
     }

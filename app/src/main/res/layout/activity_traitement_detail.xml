@@ -6,6 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".TraitementDetailActivity">
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/traitement_detail_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/traitement_detail_button_rollback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_return"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/traitement_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gilroy_extra_bold"
+                android:text="@string/resum"
+                android:textAlignment="center"
+                android:textColor="@color/title_shadow"
+                android:textSize="@dimen/title"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/traitement_detail_button_rollback"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/resum" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -171,52 +217,6 @@
             </android.support.v7.widget.CardView>
         </LinearLayout>
     </ScrollView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageButton
-                android:id="@+id/home_arrow"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="20dp"
-                android:background="#00FFFFFF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_return" />
-
-            <TextView
-                android:id="@+id/traitement_detail_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/gilroy_extra_bold"
-                android:text="@string/resum"
-                android:textAlignment="center"
-                android:textColor="@color/title_shadow"
-                android:textSize="@dimen/title"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.403"
-                app:layout_constraintStart_toEndOf="@+id/home_arrow"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/resum" />
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v7.widget.CardView>
 
     <FrameLayout
         android:id="@+id/traitement_detail_docteur_container"

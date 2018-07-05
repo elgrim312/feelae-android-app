@@ -21,19 +21,19 @@
     <string name="consultation">Consultation</string>
     <string name="resum">Résumé</string>
     <string name="thank">Merci,</string>
-    <string name="end_consultation">Votre consultations est terminée</string>
+    <string name="end_consultation">Votre consultation est terminée</string>
     <string name="remind_me">Me faire un rappel</string>
-    <string name="recap_drug_store">Pharmacie proche</string>
-    <string name="it_ok">C\'est bon</string>
-    <string name="recap_symptome">Symptôme</string>
+    <string name="recap_drug_store">Pharmacies proches</string>
+    <string name="it_ok">J\'ai mes médicaments</string>
+    <string name="recap_symptome">Symptômes</string>
     <string name="traitement">Traitement</string>
     <string name="end_call">Appeler un médecin</string>
     <string name="menu_profil">Profil</string>
     <string name="menu_follow">Suivi</string>
     <string name="channel_name">feelae</string>
     <string name="channel_description">rappel de prise de traitement</string>
-    <string name="call_practitioner">Appeler un médecin, \n  quand et où vous le souhaitez</string>
-    <string name="notification_traitement">"N'oublié pas de prendre votre médicament"</string>
+    <string name="call_practitioner">Appelez un médecin, \n  quand et où vous le souhaitez</string>
+    <string name="notification_traitement">"N'oubliez pas de prendre votre médicament"</string>
     <string name="side_effect">Effet secondaire</string>
 
     <!-- prescription list item -->

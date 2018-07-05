@@ -28,6 +28,8 @@ class TraitementDetailActivity : Activity() {
         traitement_detail_side_effect.text = concat(traitement.side_effect)
         traitement_detail_indication.text = concat(traitement.indication)
 
-
+        traitement_detail_button_rollback.setOnClickListener {
+            finish()
+        }
     }
 }
