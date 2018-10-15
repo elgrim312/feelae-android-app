@@ -47,6 +47,7 @@ class RecapActivity : AppCompatActivity() {
         recap_remind_me.setOnClickListener {
             createNotificationChannel()
             makeNotification()
+            finish()
         }
 
         recap_drug.setOnClickListener {
